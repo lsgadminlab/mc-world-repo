@@ -1,0 +1,75 @@
+Lsgserver:
+  change-interval: 100
+  texts:
+      - '#f6fb00L#f7df05s#f8c30ag#f8a70fs#f98b14e#fa701ar#fb541fv#fb3824e#fc1c29r#fd002es'
+      - '#f6fb00L#f7df05s#f8c30ag#f8a70fs#f98b14e#fa701ar#fb541fv#fb3824e#fc1c29r#fd002es'
+      - '#f6fb00L#f7df05s#f8c30ag#f8a70fs#f98b14e#fa701ar#fb541fv#fb3824e#fc1c29r#fd002es'
+      - '#f6fb00L#f7df05s#f8c30ag#f8a70fs#f98b14e#fa701ar#fb541fv#fb3824e#fc1c29r#fd002es'
+      - '#FFFFFFL#f7df05s#f8c30ag#f8a70fs#f98b14e#fa701ar#fb541fv#fb3824e#fc1c29r#fd002es'
+      - '#f6fb00L#FFFFFFs#f8c30ag#f8a70fs#f98b14e#fa701ar#fb541fv#fb3824e#fc1c29r#fd002es'
+      - '#f6fb00L#f7df05s#FFFFFFg#f8a70fs#f98b14e#fa701ar#fb541fv#fb3824e#fc1c29r#fd002es'
+      - '#f6fb00L#f7df05s#f8c30ag#FFFFFFs#f98b14e#fa701ar#fb541fv#fb3824e#fc1c29r#fd002es'
+      - '#f6fb00L#f7df05s#f8c30ag#f8a70fs#FFFFFFe#fa701ar#fb541fv#fb3824e#fc1c29r#fd002es'
+      - '#f6fb00L#f7df05s#f8c30ag#f8a70fs#f98b14e#FFFFFFr#fb541fv#fb3824e#fc1c29r#fd002es'
+      - '#f6fb00L#f7df05s#f8c30ag#f8a70fs#f98b14e#fa701ar#FFFFFFv#fb3824e#fc1c29r#fd002es'
+      - '#f6fb00L#f7df05s#f8c30ag#f8a70fs#f98b14e#fa701ar#fb541fv#FFFFFFe#fc1c29r#fd002es'
+      - '#f6fb00L#f7df05s#f8c30ag#f8a70fs#f98b14e#fa701ar#fb541fv#fb3824e#FFFFFFr#fd002es'
+      - '#f6fb00L#f7df05s#f8c30ag#f8a70fs#f98b14e#fa701ar#fb541fv#fb3824e#fc1c29r#FFFFFFs'
+ServerName:
+  change-interval: 300
+  texts:
+  - '&c&lServerName'
+  - '&c&n&lServerName'
+  - '&b&lServerName'
+  - '&b&l&nServerName'
+  - '&e&lServerName'
+  - '&e&n&lServerName'
+discord:
+  change-interval: 200
+  texts:
+  - '&ewith /discord'
+  - '&ewith /discord'
+  - '&ewith /discord'
+  - '&ewith /discord'
+  - '&ewith /discord'
+  - '&ewith /discord'
+vote:
+  change-interval: 1000
+  texts:
+  - '&avote.domain.com'
+  - '&a&nvote.domain.com'
+  - '&5vote.domain.com'
+  - '&5&nvote.domain.com'
+Welcome:
+  change-interval: 400
+  texts:
+  - '&7&lW_'
+  - '&7&lW_'
+  - '&7&lWe_'
+  - '&7&lWel_'
+  - '&7&lWelc_'
+  - '&7&lWelco_'
+  - '&7&lWelcom_'
+  - '&7&lWelcome_'
+  - '&7&lWelcome_'
+  - '&7&lWelcome_'
+  - '&7&lWelcome_'
+  - '&7&lWelcom_'
+  - '&7&lWelco_'
+  - '&7&lWelc_'
+  - '&7&lWel_'
+  - '&7&lWe_'
+  - '&7&lW_'
+  - '&7&lW_'
+time:
+  change-interval: 3000
+  texts:
+    - '&7Time &b%time%'
+    - '&7Date &b%date%'
+barcolors:
+  change-interval: 1000
+  texts:
+    - RED
+    - BLUE
+    - GREEN
+    - YELLOW
