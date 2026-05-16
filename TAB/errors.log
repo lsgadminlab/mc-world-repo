@@ -1,0 +1,8 @@
+23.02.2026 - 16:35:12 - [TAB v5.3.2] Failed to connect to MySQL: com.mysql.cj.exceptions.UnableToConnectException: Public Key Retrieval is not allowed
+25.02.2026 - 11:07:21 - [TAB v5.3.2] Failed to connect to MySQL: com.mysql.cj.exceptions.UnableToConnectException: Public Key Retrieval is not allowed
+25.02.2026 - 16:18:23 - [TAB v5.3.2] Failed to connect to MySQL: com.mysql.cj.exceptions.UnableToConnectException: Public Key Retrieval is not allowed
+25.02.2026 - 16:30:40 - [TAB v5.3.2] Failed to connect to MySQL: com.mysql.cj.exceptions.UnableToConnectException: Public Key Retrieval is not allowed
+27.02.2026 - 13:23:32 - [TAB v5.3.2] Failed to connect to MySQL: java.sql.SQLSyntaxErrorException: Unknown database 'fabiDB'
+28.02.2026 - 19:57:20 - [TAB v5.3.2] Failed to connect to MySQL: java.net.ConnectException: Connection refused
+09.03.2026 - 14:31:42 - [TAB v5.3.2] Failed to connect to MySQL: java.net.ConnectException: Connection refused
+21.03.2026 - 13:50:57 - [TAB v5.3.2] Failed to connect to MySQL: java.net.SocketTimeoutException: Connect timed out
