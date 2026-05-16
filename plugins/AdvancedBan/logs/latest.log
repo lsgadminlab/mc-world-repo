@@ -1,0 +1,86 @@
+[13:51:29] Failed enabling database-manager...
+[13:51:29] me.leoko.advancedban.shaded.com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.shaded.com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:595)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.shaded.com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:581)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.shaded.com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.shaded.com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.utils.DynamicDataSource.generateDataSource(DynamicDataSource.java:37)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.manager.DatabaseManager.setup(DatabaseManager.java:51)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.Universal.setup(Universal.java:72)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.bukkit.BukkitMain.onEnable(BukkitMain.java:22)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:288)
+	at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:202)
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:520)
+	at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:641)
+	at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:590)
+	at net.minecraft.server.MinecraftServer.loadWorld0(MinecraftServer.java:753)
+	at net.minecraft.server.MinecraftServer.loadLevel(MinecraftServer.java:515)
+	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:329)
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1214)
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:165)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:55)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:861)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:234)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:180)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.shaded.com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.shaded.com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.shaded.com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.shaded.com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.shaded.com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560)
+	... 18 more
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:52)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:95)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:140)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:156)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:79)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:139)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:980)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:851)
+	... 26 more
+Caused by: java.net.SocketTimeoutException: Connect timed out
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:546)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:144)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:53)
+	... 29 more
+
+[13:51:29] An unexpected error has occurred connecting to the database
+Check if your MySQL data is correct and if your MySQL-Server is online
+Please check the plugins/AdvancedBan/logs/latest.log file and report this error in: https://github.com/DevLeoko/AdvancedBan/issues
+[13:51:29] java.lang.NullPointerException: Cannot invoke "me.leoko.advancedban.shaded.com.zaxxer.hikari.HikariDataSource.getConnection()" because "this.dataSource" is null
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.manager.DatabaseManager.executeStatement(DatabaseManager.java:111)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.manager.DatabaseManager.executeStatement(DatabaseManager.java:107)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.manager.DatabaseManager.executeStatement(DatabaseManager.java:92)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.manager.PunishmentManager.setup(PunishmentManager.java:41)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.Universal.setup(Universal.java:79)
+	at AdvancedBan-Bundle-2.3.0-RELEASE.jar//me.leoko.advancedban.bukkit.BukkitMain.onEnable(BukkitMain.java:22)
+	at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:288)
+	at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:202)
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109)
+	at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:520)
+	at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:641)
+	at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:590)
+	at net.minecraft.server.MinecraftServer.loadWorld0(MinecraftServer.java:753)
+	at net.minecraft.server.MinecraftServer.loadLevel(MinecraftServer.java:515)
+	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:329)
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1214)
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:329)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+

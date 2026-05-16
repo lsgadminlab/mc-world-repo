@@ -1,0 +1,126 @@
+version: 2 # DO NOT CHANGE
+holograms:
+  Staff-apply:
+    type: TEXT
+    location:
+      world: world
+      x: 6.5
+      y: 66.0
+      z: 42.5
+      yaw: 125.20205
+      pitch: 17.400034
+    visibility_distance: -1
+    visibility: ALL
+    persistent: true
+    scale_x: 1.0
+    scale_y: 1.0
+    scale_z: 1.0
+    translation_x: 0.0
+    translation_y: 0.0
+    translation_z: 0.0
+    shadow_radius: 0.0
+    shadow_strength: 1.0
+    text:
+    - STAFF-APPLY
+    - 1. You have to join the Lsgserver Discord
+    - '2. Informate about staff applies in #staff-app-information'
+    - '3. Apply in #staff-apps'
+    - 4. Wait till your Rank is being granted
+    - If the application is denited
+    - you will be notified
+    text_shadow: false
+    see_through: false
+    text_alignment: center
+    update_text_interval: -1
+  MEMBER-APPLY:
+    type: TEXT
+    location:
+      world: world
+      x: -7.5
+      y: 66.0
+      z: 42.5
+      yaw: -154.69672
+      pitch: 35.700077
+    visibility_distance: -1
+    visibility: ALL
+    persistent: true
+    scale_x: 1.0
+    scale_y: 1.0
+    scale_z: 1.0
+    translation_x: 0.0
+    translation_y: 0.0
+    translation_z: 0.0
+    shadow_radius: 0.0
+    shadow_strength: 1.0
+    text:
+    - MEMBER-APPLY
+    - 1. Öffne musin. Der link ist auf dem discord server
+    - 2. Sende eine E-Mail zu lsgserver@outlook.de
+    - mit deinem discord und minecraft username
+    - +
+    - Wenn du kein Discord hast,
+    - kannst du auch nur deinen Minecraft username angeben.
+    - 3. Warte, bis du den MEMBER-Rank erhalten hast.
+    - Mehr informationen sind auf dem Discord
+    - This rank is only for Students of the LSG
+    text_shadow: false
+    see_through: false
+    text_alignment: center
+    update_text_interval: -1
+  BE-CITY:
+    type: TEXT
+    location:
+      world: world
+      x: 3.5
+      y: 85.0
+      z: 2.5
+      yaw: 117.57431
+      pitch: 21.59997
+    visibility_distance: -1
+    visibility: ALL
+    persistent: true
+    scale_x: 1.0
+    scale_y: 1.0
+    scale_z: 1.0
+    translation_x: 0.0
+    translation_y: 0.0
+    translation_z: 0.0
+    shadow_radius: 0.0
+    shadow_strength: 1.0
+    text:
+    - BE-CITY-information
+    - BE-CITY is a partnerserver of our Lsgserver community
+    - The server will not be 24/7 on
+    - BE-CITY is starting the Betaversion on the 16th Feburary 2026
+    - Join the BE-CITY Discord server with /becitydiscord
+    - You can join the server with the npc on the right
+    text_shadow: false
+    see_through: false
+    text_alignment: center
+    update_text_interval: -1
+  Obby:
+    type: TEXT
+    location:
+      world: world
+      x: -11.462443351745605
+      y: 66.0
+      z: 34.54479217529297
+      yaw: -92.48633
+      pitch: 90.0
+    visibility_distance: -1
+    visibility: ALL
+    persistent: true
+    scale_x: 1.0
+    scale_y: 1.0
+    scale_z: 1.0
+    translation_x: 0.0
+    translation_y: 0.0
+    translation_z: 0.0
+    shadow_radius: 0.0
+    shadow_strength: 1.0
+    text:
+    - Teleport to Jump-and-Run
+    text_shadow: false
+    see_through: false
+    text_alignment: center
+    update_text_interval: -1
