@@ -1,0 +1,31 @@
+books:
+  discord:
+    command: "discord"
+    title: "Discord"
+    author: "Lsgserver"
+    entries:
+      - type: url
+        name: "Discord"
+        link: "https://discord.com/invite/m9Agrc3dwd"
+  becitydiscord:
+    command: "becitydiscord"
+    title: "BECITYDiscord"
+    author: "Lsgserver Partnership"
+    entries:
+      - type: url
+        name: "BE-CITY Discord"
+        link: "https://discord.com/invite/Xkvm4dZGQU"
+  regeln:
+    command: "rules"
+    title: "Server rules"
+    author: "Lsgserver"
+    entries:
+      - type: url
+        name: "1. Do not use hacks of any kind!"
+        link: ""
+      - type: url
+        name: "2. Don´t be racist!"
+        link: ""
+      - type: url
+        name: "3. Do not use any exploits. If you find an exploit, please report it in our discord!"
+        link: ""
