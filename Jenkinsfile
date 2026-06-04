@@ -18,7 +18,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/lsgadminlab/PaperMC-K8s-Resource.git'
+                    url: 'https://github.com/lsgadminlab/mc-world-repo.git'
             }
         }
 
