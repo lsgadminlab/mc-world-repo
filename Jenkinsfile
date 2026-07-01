@@ -6,6 +6,7 @@ pipeline {
         IMAGE_NAME    = 'lobby'
         PAPER_VERSION = '1.21.4'
         IMAGE_BASE    = "${REGISTRY}/${IMAGE_NAME}"
+        PAPER_BUILD   = '123'
     }
 
     options {
@@ -31,6 +32,7 @@ pipeline {
                 sh """
                     docker build \\
                         --build-arg PAPER_VERSION=${PAPER_VERSION} \\
+                        --build-arg PAPER_BUILD=§{PAPER_BUILD}
                         -t ${IMAGE_BASE}:${TAG_FULL} \\
                         -t ${IMAGE_BASE}:${PAPER_VERSION} \\
                         -t ${IMAGE_BASE}:latest \\
