@@ -4,38 +4,24 @@
 FROM eclipse-temurin:21-jdk-alpine AS builder
 
 ARG PAPER_VERSION=1.21.4
-ARG PAPER_BUILD=latest
+ARG PAPER_BUILD
 
 WORKDIR /build
-
 RUN apk add --no-cache curl jq
 
 RUN set -eux; \
+    if [ -z "${PAPER_BUILD:-}" ] || [ "${PAPER_BUILD}" = "latest" ]; then \
+      echo "ERROR: PAPER_BUILD must be a numeric build id (latest disabled in CI due to API 403)." >&2; \
+      exit 1; \
+    fi; \
+    case "${PAPER_BUILD}" in \
+      ''|*[!0-9]*) echo "ERROR: PAPER_BUILD must be numeric, got '${PAPER_BUILD}'" >&2; exit 1 ;; \
+    esac; \
     API_BASE="https://api.papermc.io/v3/projects/paper/versions/${PAPER_VERSION}"; \
-    if [ "${PAPER_BUILD}" = "latest" ]; then \
-        PAPER_BUILD="$(curl -fsSL \
-          -A "mc-world-repo-docker/1.0" \
-          -H "Accept: application/json" \
-          "${API_BASE}/builds" \
-          | jq -r '.builds | last | .id')"; \
-    fi; \
-    if [ -z "${PAPER_BUILD}" ] || [ "${PAPER_BUILD}" = "null" ]; then \
-        echo "Failed to resolve PaperMC build for version ${PAPER_VERSION}" >&2; \
-        exit 1; \
-    fi; \
-    APP_NAME="$(curl -fsSL \
-      -A "mc-world-repo-docker/1.0" \
-      -H "Accept: application/json" \
-      "${API_BASE}/builds/${PAPER_BUILD}" \
-      | jq -r '.downloads.application.name')"; \
-    if [ -z "${APP_NAME}" ] || [ "${APP_NAME}" = "null" ]; then \
-        echo "Failed to resolve download name for PaperMC ${PAPER_VERSION} build ${PAPER_BUILD}" >&2; \
-        exit 1; \
-    fi; \
-    echo "Downloading PaperMC ${PAPER_VERSION} build ${PAPER_BUILD} (${APP_NAME})..."; \
-    curl -fsSL \
-      -A "mc-world-repo-docker/1.0" \
-      -o paper.jar \
+    APP_NAME="$(curl -fsSL -A "mc-world-repo-docker/1.0" -H "Accept: application/json" \
+      "${API_BASE}/builds/${PAPER_BUILD}" | jq -r '.downloads.application.name')"; \
+    [ -n "${APP_NAME}" ] && [ "${APP_NAME}" != "null" ]; \
+    curl -fsSL -A "mc-world-repo-docker/1.0" -o paper.jar \
       "${API_BASE}/builds/${PAPER_BUILD}/downloads/${APP_NAME}"
       
 # ─────────────────────────────────────────────
