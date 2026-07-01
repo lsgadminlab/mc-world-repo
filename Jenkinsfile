@@ -65,7 +65,7 @@ pipeline {
                 docker rmi ${IMAGE_BASE}:latest           || true
                 docker logout ${REGISTRY}                 || true
             """
-            cleanWs()
+            deleteDir()
         }
     }
 }
