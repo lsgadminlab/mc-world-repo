@@ -32,7 +32,7 @@ pipeline {
                 sh """
                     docker build \\
                         --build-arg PAPER_VERSION=${PAPER_VERSION} \\
-                        --build-arg PAPER_BUILD=§{PAPER_BUILD}
+                        --build-arg PAPER_BUILD=${PAPER_BUILD}
                         -t ${IMAGE_BASE}:${TAG_FULL} \\
                         -t ${IMAGE_BASE}:${PAPER_VERSION} \\
                         -t ${IMAGE_BASE}:latest \\
