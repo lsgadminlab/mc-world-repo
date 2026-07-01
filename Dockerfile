@@ -11,18 +11,23 @@ WORKDIR /build
 RUN apk add --no-cache curl jq
 
 RUN set -eux; \
+    API_BASE="https://api.papermc.io/v3/projects/paper/versions/${PAPER_VERSION}"; \
+    CURL_JSON="curl -fsSL -A 'mc-world-repo-docker/1.0' -H 'Accept: application/json'"; \
     if [ "${PAPER_BUILD}" = "latest" ]; then \
-        PAPER_BUILD="$(curl -fsSL \
-            "https://api.papermc.io/v3/projects/paper/versions/${PAPER_VERSION}/builds" \
-            | jq -r '.builds | last | .id')"; \
+        PAPER_BUILD="$($CURL_JSON "${API_BASE}/builds" | jq -r '(.builds // .builds.builds) | last | .id')"; \
     fi; \
     if [ -z "${PAPER_BUILD}" ] || [ "${PAPER_BUILD}" = "null" ]; then \
         echo "Failed to resolve PaperMC build for version ${PAPER_VERSION}" >&2; \
         exit 1; \
     fi; \
-    echo "Downloading PaperMC ${PAPER_VERSION} build ${PAPER_BUILD}..."; \
-    curl -fsSL -o paper.jar \
-        "https://api.papermc.io/v3/projects/paper/versions/${PAPER_VERSION}/builds/${PAPER_BUILD}/downloads/paper-${PAPER_VERSION}-${PAPER_BUILD}.jar"
+    APP_NAME="$($CURL_JSON "${API_BASE}/builds/${PAPER_BUILD}" | jq -r '.downloads.application.name')"; \
+    if [ -z "${APP_NAME}" ] || [ "${APP_NAME}" = "null" ]; then \
+        echo "Failed to resolve download name for PaperMC ${PAPER_VERSION} build ${PAPER_BUILD}" >&2; \
+        exit 1; \
+    fi; \
+    echo "Downloading PaperMC ${PAPER_VERSION} build ${PAPER_BUILD} (${APP_NAME})..."; \
+    curl -fsSL -A 'mc-world-repo-docker/1.0' -o paper.jar \
+      "${API_BASE}/builds/${PAPER_BUILD}/downloads/${APP_NAME}"
 # ─────────────────────────────────────────────
 # Stage 2: Runtime image
 # ─────────────────────────────────────────────
