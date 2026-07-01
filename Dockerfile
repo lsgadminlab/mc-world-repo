@@ -12,14 +12,17 @@ RUN apk add --no-cache curl jq
 
 RUN set -eux; \
     if [ "${PAPER_BUILD}" = "latest" ]; then \
-        PAPER_BUILD=$(curl -fsSL \
+        PAPER_BUILD="$(curl -fsSL \
             "https://api.papermc.io/v2/projects/paper/versions/${PAPER_VERSION}/builds" \
-            | jq -r '.builds[-1].build'); \
+            | jq -r '.builds | last | .build')"; \
+    fi; \
+    if [ -z "${PAPER_BUILD}" ] || [ "${PAPER_BUILD}" = "null" ]; then \
+        echo "Failed to resolve PaperMC build for version ${PAPER_VERSION}" >&2; \
+        exit 1; \
     fi; \
     echo "Downloading PaperMC ${PAPER_VERSION} build ${PAPER_BUILD}..."; \
     curl -fsSL -o paper.jar \
         "https://api.papermc.io/v2/projects/paper/versions/${PAPER_VERSION}/builds/${PAPER_BUILD}/downloads/paper-${PAPER_VERSION}-${PAPER_BUILD}.jar"
-
 # ─────────────────────────────────────────────
 # Stage 2: Runtime image
 # ─────────────────────────────────────────────
