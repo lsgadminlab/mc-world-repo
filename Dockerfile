@@ -5,24 +5,14 @@ FROM eclipse-temurin:21-jdk-alpine AS builder
 
 ARG PAPER_VERSION=1.21.4
 ARG PAPER_BUILD
+ARG PAPER_URL="https://fill-data.papermc.io/v1/objects/5ee4f542f628a14c644410b08c94ea42e772ef4d29fe92973636b6813d4eaffc/paper-1.21.4-232.jar"
 
 WORKDIR /build
 RUN apk add --no-cache curl jq
 
 RUN set -eux; \
-    if [ -z "${PAPER_BUILD:-}" ] || [ "${PAPER_BUILD}" = "latest" ]; then \
-      echo "ERROR: PAPER_BUILD must be a numeric build id (latest disabled in CI due to API 403)." >&2; \
-      exit 1; \
-    fi; \
-    case "${PAPER_BUILD}" in \
-      ''|*[!0-9]*) echo "ERROR: PAPER_BUILD must be numeric, got '${PAPER_BUILD}'" >&2; exit 1 ;; \
-    esac; \
-    API_BASE="https://api.papermc.io/v3/projects/paper/versions/${PAPER_VERSION}"; \
-    APP_NAME="$(curl -fsSL -A "mc-world-repo-docker/1.0" -H "Accept: application/json" \
-      "${API_BASE}/builds/${PAPER_BUILD}" | jq -r '.downloads.application.name')"; \
-    [ -n "${APP_NAME}" ] && [ "${APP_NAME}" != "null" ]; \
-    curl -fsSL -A "mc-world-repo-docker/1.0" -o paper.jar \
-      "${API_BASE}/builds/${PAPER_BUILD}/downloads/${APP_NAME}"
+    echo "Downloading Paper from: ${PAPER_URL}"; \
+    curl -fL --retry 5 --retry-delay 2 -o paper.jar "${PAPER_URL}"
       
 # ─────────────────────────────────────────────
 # Stage 2: Runtime image
