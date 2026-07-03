@@ -3,9 +3,9 @@
 # ─────────────────────────────────────────────
 FROM eclipse-temurin:21-jdk-alpine AS builder
 
-ARG PAPER_VERSION=1.21.4
+ARG PAPER_VERSION=1.21.11
 ARG PAPER_BUILD
-ARG PAPER_URL="https://fill-data.papermc.io/v1/objects/5ee4f542f628a14c644410b08c94ea42e772ef4d29fe92973636b6813d4eaffc/paper-1.21.4-232.jar"
+ARG PAPER_URL="https://fill-data.papermc.io/v1/objects/5ffef465eeeb5f2a3c23a24419d97c51afd7dbb4923ff42df9a3f58bba1ccfba/paper-1.21.11-132.jar"
 
 WORKDIR /build
 RUN apk add --no-cache curl jq
@@ -21,7 +21,7 @@ FROM eclipse-temurin:21-jre-alpine
 
 LABEL maintainer="lsgadminlab" \
       org.opencontainers.image.title="PaperMC" \
-      org.opencontainers.image.version="1.21.4" \
+      org.opencontainers.image.version="1.21.11" \
       org.opencontainers.image.source="https://github.com/lsgadminlab/PaperMC-K8s-Resources"
 
 ENV MC_RAM_MIN=1G \
