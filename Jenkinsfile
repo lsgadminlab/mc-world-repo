@@ -4,7 +4,7 @@ pipeline {
     environment {
         REGISTRY      = 'docker.lsgserver.dev'
         IMAGE_NAME    = 'lobby'
-        PAPER_VERSION = '1.21.4'
+        PAPER_VERSION = '1.21.11'
         IMAGE_BASE    = "${REGISTRY}/${IMAGE_NAME}"
         PAPER_BUILD   = '123'
     }
