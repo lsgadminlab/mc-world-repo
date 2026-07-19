@@ -8,7 +8,7 @@ ARG PAPER_BUILD
 ARG PAPER_URL="https://fill-data.papermc.io/v1/objects/5ffef465eeeb5f2a3c23a24419d97c51afd7dbb4923ff42df9a3f58bba1ccfba/paper-1.21.11-132.jar"
 
 WORKDIR /build
-RUN apk add --no-cache curl jq
+RUN apk add --no-cache curl jq nano wget
 
 RUN set -eux; \
     echo "Downloading Paper from: ${PAPER_URL}"; \
