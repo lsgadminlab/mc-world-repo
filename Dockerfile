@@ -1,7 +1,7 @@
 # ─────────────────────────────────────────────
 # Stage 1: Download PaperMC JAR
 # ─────────────────────────────────────────────
-FROM eclipse-temurin:21-jdk-alpine AS builder
+FROM eclipse-temurin:25-jdk-alpine AS builder
 
 ARG PAPER_VERSION=1.21.11
 ARG PAPER_BUILD
@@ -17,7 +17,7 @@ RUN set -eux; \
 # ─────────────────────────────────────────────
 # Stage 2: Runtime image
 # ─────────────────────────────────────────────
-FROM eclipse-temurin:21-jre-alpine
+FROM eclipse-temurin:25-jre-alpine
 
 LABEL maintainer="lsgadminlab" \
       org.opencontainers.image.title="PaperMC" \
